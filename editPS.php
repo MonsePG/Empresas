@@ -5,6 +5,7 @@
     ini_set("display_errors", 1);
 
     //setting url
+    // $url = '192.168.0.51:3000/api/v1/Productos/modificaProductosServicios';
     $url = 'https://web-api-ps.herokuapp.com/api/v1/Productos/modificaProductosServicios';
 
     $Id_Categoria = $_POST['Id_Categoria'];
@@ -26,10 +27,12 @@
     'Descripcion' => $Descripcion, 
     'Activo' => $Activo, 
     'TipoPS' => $TipoPS, 
-    'id' => $Id_PS, 
+    'Id_PS' => $Id_PS, 
+    'id' => $Id_PS, //Se añadira temporalmente mientras se cambia en la api
     );
+    // echo implode(" ",$campos);
     
-        try {
+    try {
         $ch = curl_init($url);
         $data_string = json_encode($campos);
         
@@ -46,12 +49,13 @@
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $data = curl_exec($ch);
             $RespuestaServer = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-
+            // echo $data;
             $json = json_decode($data);
             $newVar = json_encode($json->msg,JSON_FORCE_OBJECT);
-            echo($newVar);
+            // echo($newVar);
             if($RespuestaServer == 200){
-                header("location: InfoProducService.php");
+               echo "Funciona";
+                    header("location: InfoProducService.php");
                 }
     } catch(Exception $e) {
     
