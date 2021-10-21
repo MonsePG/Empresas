@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (!isset($_SESSION['AutenticarUsuario'])) {
+    header("location: Inicio.php?status=500");
+}
 
 $Id = $_SESSION['Id_Empresa'];
 $Id_PS = $_POST["Id_PS"];
@@ -74,7 +77,7 @@ $Id_Empresa = $decodificada->msg->Id_Empresa;
                         <a class="nav-link" href="InfoProducService.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-pizza-slice"></i></div>Productos y Servicios
                         </a>
-                        
+
                     </div>
                 </div>
             </nav>

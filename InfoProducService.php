@@ -45,7 +45,7 @@ session_start();
                         <a class="nav-link" href="InfoProducService.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-pizza-slice"></i></div>Productos y Servicios
                         </a>
-                        
+
                     </div>
                 </div>
             </nav>
@@ -68,13 +68,15 @@ session_start();
     curl_close($ch);
 
     $json = json_decode($data);
+    ?>
+
+                <div class="card-group">
+                <?php
     foreach ($json->msg as $item)
     {
         ?>
-                <div class="card-group">
-                    <div class="container" id="mycontainer">
-                        <!--<div id=" mycontainer" class="container">-->
-                        <div class="card text-center">
+                    <div class="container   col-12 col-sm-12 col-md-12 col-lg-6 col-xl-4  row justify-content-center">
+                        <div class="card text-center  col-12">
                             <img src="<?php echo $item->Imagen;?>" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">
@@ -112,10 +114,11 @@ session_start();
                             </div>
                         </div>
                     </div>
-                </div>
-                <?php
+                    <?php
     }
 ?>
+                </div>
+
                 <div align="center">
                     <a class="btn btn-outline-primary" href="addProductService.php" role="button">Crear nuevo</a>
                 </div>

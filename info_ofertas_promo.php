@@ -1,5 +1,8 @@
 <?php  
 session_start();
+if (!isset($_SESSION['AutenticarUsuario'])) {
+    header("location: login.php?status=500");
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -45,12 +48,11 @@ session_start();
                         <a class="nav-link" href="InfoProducService.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-pizza-slice"></i></div>Productos y Servicios
                         </a>
-                        
+
                     </div>
                 </div>
             </nav>
         </div>
-
         <div id="layoutSidenav_content">
             <div class="container-fluid px-4">
                 <center>
@@ -58,24 +60,26 @@ session_start();
                 </center>
 
                 <?php
-    $id_empresa = $_SESSION['Id_Empresa'];
+                $id_empresa = $_SESSION['Id_Empresa'];
 
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, 'https://web-api-ps.herokuapp.com/api/v1/oferta_promo/consultaPromoOfertaCard/'.$id_empresa);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_HEADER, 0);
-    $data = curl_exec($ch);
-    curl_close($ch);
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, 'https://web-api-ps.herokuapp.com/api/v1/oferta_promo/consultaPromoOfertaCard/'.$id_empresa);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_HEADER, 0);
+                $data = curl_exec($ch);
+                curl_close($ch);
 
-    $json = json_decode($data);
-    foreach ($json->msg as $item)
-    {
-        ?>
-                <div class="card-group">
-                    <div class="container" id="mycontainer">
-                        <!--<div id=" mycontainer" class="container">-->
-                        <div class="card text-center">
-                            <img src="<?php echo $item->Imagen;?>" class="card-img-top" alt="...">
+                $json = json_decode($data);
+                ?>
+
+                <div class="card-group ">
+                <?php 
+                foreach ($json->msg as $item)
+                {
+                ?>
+                    <div class="container  col-12 col-sm-12 col-md-12 col-lg-6 col-xl-4 row justify-content-center">
+                        <div class="card text-center col-12">
+                            <img src="<?php echo $item->Imagen;?>" class="card-img-top " alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <?php    echo "$item->Nombre" ; ?>
@@ -112,14 +116,16 @@ session_start();
                                     <button type="submit" class="btn btn-outline-dark">Activar
                                     </button>
                                 </form>
+                               
                             </div>
                         </div>
                     </div>
-                </div>
+                <?php
+                }
+                ?>
             </div>
-            <?php
-    }
-?>
+        </div>
+
             <div align="center">
                 <a class="btn btn-outline-primary" href="add_oferta_promo.php" role="button">Crear nuevo</a>
             </div>
