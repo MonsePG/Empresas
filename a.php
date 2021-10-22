@@ -10,17 +10,17 @@ include 'Consultas/Empleados/GetEmpleados.php'; */
 
 
 //Peticion crear empleado
-/* $putCreateEmpleadoBodyPeticion = array(
-    'Nombre' => 'Empleado1',
+$putCreateEmpleadoBodyPeticion = array(
+    'Nombre' => 'Borrar 7',
     'Genero' => 'M', 
     'Edad' => 30, 
     'Telefono' => 1234567890, 
-    'Correo' => 'Empleado1@nombreempresa.com', 
+    'Correo' => 'borrar7s@borrar.com', 
     'Fecha' => '2021-10-10', 
     'Contrasena' => '12345678', 
     'Id_Rol' => 4, 
 );
-include 'Consultas/Empleados/CreateEmpleado.php'; */
+include 'Consultas/Empleados/CreateEmpleadoEmpresaPost.php';
 
 //Peticion Eliminar empleados
 //No Existe metodo :(
@@ -30,12 +30,12 @@ include 'Consultas/Empleados/CreateEmpleado.php'; */
 
 <?php
 
-$getEmpleadosBodyPeticion = array(
-    'Id_Empresa' => 25,
-    'Id_Rol' => 2, 
-);
-include 'Consultas/Empleados/GetEmpleados.php'; 
+// $getEmpleadosBodyPeticion = array(
+//     'Id_Empresa' => 25,
+//     'Id_Rol' => 2, 
+// );
+// include 'Consultas/Empleados/GetEmpleados.php'; 
 
-echo json_encode($empleadosLista);
+// echo json_encode($empleadosLista);
 
 ?>

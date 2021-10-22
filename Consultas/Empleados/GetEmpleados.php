@@ -38,6 +38,7 @@
             // echo($newVar);
             if($RespuestaServer == 200){
                 $empleadosLista = $json;
+                echo $data;
                 // header("location: info_ofertas_promo.php");
                 }
     } catch(Exception $e) {
