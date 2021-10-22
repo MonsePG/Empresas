@@ -38,16 +38,17 @@
                         <h1 class="mt-4">Agregar nuevo usuario</h1>
                     </center>
                     <div class="mb-3">
-                        <form action="Consultas/Empleados/CreateEmpleado.php" method="post">
-                            <div class="mb-3">
+                        <form action="Consultas/Empleados/CreateEmpleadoEmpresaPost.php" method="post">
+                        <!-- <form action="a.php" method="post"> -->
+                        <div class="mb-3">
                                 </center>
                                 <label  class="form-label">Nombre</label>
-                                <input type="text" class="form-control" id="formGroupExampleInput"
-                                    placeholder="Ingrese el nombre del usuario" s>
+                                <input type="text" class="form-control" id="formGroupExampleInput"    name="Nombre" 
+                                    placeholder="Ingrese el nombre del usuario" >
                             </div>
                             <div class="mb-3">
                             <label  class="form-label">Genero</label>
-                                <select class="form-select" aria-label="Default select example">
+                                <select class="form-select" aria-label="Default select example"      name="Genero">
                                     <option value="M">Masculino</option>
                                     <option value="F">Femenino</option>
                                     <option value="O">Otro</option>
@@ -55,34 +56,34 @@
                             </div>
                             <div class="mb-3">
                                 <label  class="form-label">Edad</label>
-                                <input type="number" class="form-control" id="formGroupExampleInput2"
+                                <input type="number" class="form-control" id="formGroupExampleInput2"  name="Edad" 
                                     placeholder="Ingrese edad del usuario" >
                             </div>
                             <div class="mb-3">
                                 <label  class="form-label">Telefono</label>
-                                <input type="tel" class="form-control" id="formGroupExampleInput2"
+                                <input type="tel" class="form-control" id="formGroupExampleInput2"     name="Telefono" 
                                     placeholder="Ingrese el telefono de usuario">
                             </div>
                             <div class="mb-3">
                                 <label  class="form-label">Correo</label>
-                                <input type="email" class="form-control" id="formGroupExampleInput2"
+                                <input type="email" class="form-control" id="formGroupExampleInput2"   name="Correo" 
                                     placeholder="Ingrese el correo">
                             </div>
                             <div class="mb-3">
                                 <label  class="form-label">Fecha</label>
-                                <input type="date" class="form-control" id="formGroupExampleInput2"
+                                <input type="date" class="form-control" id="formGroupExampleInput2"    name="Fecha" 
                                     placeholder="Ingrese el correo">
                             </div>
                             <div class="mb-3">
                                 <label  class="form-label">Contraseña</label>
-                                <input type="password" class="form-control" id="formGroupExampleInput2"
-                                    placeholder="Ingrese una contraseña">
+                                <input type="password" class="form-control" id="formGroupExampleInput2" name="Contraseña" 
+                                    placeholder="Ingrese una contraseña" minlength="8">
                             </div>
                             
 
                             <center>
                                 <div style="width:100%; height:100%">
-                                    <a class="btn btn-outline-success" href="users.php" role="button">Guardar cambios</a>
+                                    <input type="submit" class="btn btn-outline-success" href="users.php" role="button" value="Guardar cambios"></input>
                                     <a class="btn btn-outline-danger" href="users.php" role="button">Cancelar</a>
                                     <p>
                             </center>

@@ -2,7 +2,7 @@
     $empleadosLista;
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
-    $url = 'localhost:3000/api/v1/sesion/consultarPorEmpresaRol';
+    $url = 'https://web-api-ps.herokuapp.com/api/v1/sesion/consultarPorEmpresaRol';
 
 /*  
     //Requisito para importar este metodo
